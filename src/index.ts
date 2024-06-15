@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Response } from "express";
 const app = express();
 import dotenv from "dotenv"
 import cors from "cors"
@@ -17,6 +17,10 @@ app.use(cors());
 app.use("/v1/user",userRoutes)
 app.use("/v1/account",accountRoutes)
 app.use("/v1/transaction",transactionRoutes);
+
+app.get('/',(req,res:Response)=>{
+    res.send("Live")
+})
 
 
 const PORT = process.env.PORT || 7001;
